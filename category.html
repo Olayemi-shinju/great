@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="dash">
+        <div class="but_add">
+            <a href="dash.html">
+                <div><button
+                        style="width: 200px; border: none; margin-left: 20px; margin-top: 40px; margin-bottom: 20px; height: 40px; color: white; cursor: pointer; background-color: black; border-radius: 5px;">Dashboard</button>
+                </div>
+            </a>
+            <a href="add.html">
+                <div><button
+                        style="width: 200px; border: none; margin-left: 20px; height: 40px; color: white; background-color: black; border-radius: 5px; cursor: pointer;">Add
+                        product</button></div>
+            </a>
+            <a href="category.html">
+                <div><button
+                        style="margin-top: 20px; width: 200px; border: none; margin-left: 20px; height: 40px; color: white; background-color: black; border-radius: 5px; cursor: pointer;">Category</button>
+                </div>
+            </a>
+            <a href="view.html">
+                <div><button
+                        style="margin-top: 20px; width: 200px; border: none; margin-left: 20px; height: 40px; color: white; background-color: black; border-radius: 5px; cursor: pointer;">View all product</button>
+                </div>
+            </a>
+            <div style="display: flex; justify-content: right; margin-right: 30px; line-height: 30em;">
+                <a href="log.html" style="color: black; text-decoration: none;">
+                    <span>Sign out</span>
+                </a>
+            </div>
+        </div>
+        <div class="other">
+            <div style="background-color: white; width: 100%; height: 70px; position: fixed;">
+                <div class="nav_dash">
+                    <div style="display: flex; justify-content: right; margin-right: 20px; font-size: 1.1rem;">
+                        <p>Category</p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 150px; margin-left: 350px;">
+                <div>
+                    <input type="text" name="product" id="name1" placeholder="Enter Name of Product" />
+                </div>
+                <div>
+                    <input type="url" name="image" id="image" />
+                </div>
+                <button id="btn">Add</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            let btn = $('#btn')
+          
+
+            btn.on('click', function () {
+                let image = $('#image').val()
+            let name1 = $('#name1').val()
+            let id = localStorage.getItem('user')
+
+            // let data = {
+            //     image: image,
+            //     name: name1,
+            //     merchant_id: id,
+            // }
+            //     console.log(data)
+               
+                $.ajax({
+                    url: 'http://ecommerce.reworkstaging.name.ng/v2/categories',
+                    type: 'POST',
+                    contentType: "application/json",
+
+                    data: JSON.stringify({
+                        name: name1,
+                        image: image,
+                        merchant_id: id,
+                    }),
+
+                    processData: false,
+                    success: function (res) {
+                        console.log(res.id)
+                        alert('Successful')
+                        let category_id = res.id
+                        let name = res.name
+                        localStorage.setItem('catID', category_id)
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        alert('failed to add category')
+                        // console.log(error)
+                    }
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

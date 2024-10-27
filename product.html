@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>product</title>
+</head>
+
+<body>
+    <div style="position: fixed; z-index: 10; width: 100%; top: 0;">
+        <div class="nav">
+            <div id="moving-text" class="nav1 move">
+                <h3>Discover Sneakers Perfection: shop best sellers</h3>
+                <h3>Free Standard shipping on orders $100+</h3>
+                <h3>Discover Sneakers Perfection: shop best sellers</h3>
+                <h3>Outlets is now up to 75% off</h3>
+            </div>
+        </div>
+        <div class="absolute">
+
+            <div class="flex_all">
+                <div class="flex">
+                    <a href="index.html" style="color: black; text-decoration: none;">
+                        <h3>GREATS</h3>
+                    </a>
+                    <li>New</li>
+                    <a href="product.html" style="text-decoration: none; color: black;">
+                        <li onmouseover="men()" style="cursor: pointer;">Men</li>
+                    </a>
+                    <li style="cursor: pointer;" onmouseover="women()">Women</li>
+                    <li style="cursor: pointer;" onmouseover="Access()">Accessories</li>
+                    <li>Sale</li>
+                    <li>Our Story</li>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="display: flex; align-items: center;">
+                        <img src="image/search.png" alt="" style="width: 50px;">
+                        <input type="text" name="" id="" placeholder="search" class="input">
+                    </div>
+                    <a href="sign.html">
+                        <img src="image/log.png" alt="" style="width: 40px; margin-left: 10px;">
+                    </a>
+                    <div id="cart_img">
+                        <img src="image/bag1.png" alt="" style="width: 53px; position: relative;">
+                    </div>
+                    <p style="position: absolute; margin-left: 346px; top: 8px;">0</p>
+                </div>
+            </div>
+            <div class="none1" id="drop" onmouseleave="men2()">
+                <div class="grid">
+                    <div class="grid_item">
+                        <div>
+                            <h3>SHOP BY</h3>
+                        </div>
+                        <li>Sales</li>
+                        <li>Low Top</li>
+                        <li>Loafter</li>
+                        <li>Runners</li>
+                        <li>High Tops</li>
+                        <li>Boots</li>
+                        <li>Extended Sizing</li>
+                        <li>Accessories</li>
+                        <li>Shop All</li>
+                    </div>
+                    <div class="grid_item2">
+                        <h3>FEATURED</h3>
+
+                        <div class="grid2">
+                            <div class="grid_item3">
+                                <img src="image/over1.jpg" alt="" class="over1">
+                                <div>
+                                    <span>What's New</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/over2.jpg" alt="" class="over1">
+                                <div>
+                                    <span>Handcrafted in italy</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/over3.jpg" alt="" class="over1">
+                                <div>
+                                    <span>Best Sellers</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/over4.jpg" alt="" class="over1">
+                                <div>
+                                    <span>The Ultimate Penny Loafter</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="none2" id="drop1">
+                <div class="grid" onmouseleave="women2()">
+                    <div class="grid_item">
+                        <div>
+                            <h3>SHOP BY</h3>
+                        </div>
+                        <li>Sales</li>
+                        <li>Low Top</li>
+                        <li>Loafter</li>
+                        <li>Runners</li>
+                        <li>Accessories</li>
+                        <li>Boots</li>
+                        <li>Shop All</li>
+                    </div>
+                    <div class="grid_item2">
+                        <h3>FEATURED</h3>
+
+                        <div class="grid2">
+                            <div class="grid_item3">
+                                <img src="image/girl1.jpg" alt="" class="over1">
+                                <div>
+                                    <span>What's New</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/girl2.jpg" alt="" class="over1">
+                                <div>
+                                    <span>Handcrafted in italy</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/girl3.jpg" alt="" class="over1">
+                                <div>
+                                    <span>Best Sellers</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/girl4.jpg" alt="" class="over1">
+                                <div>
+                                    <span>The Distressed Collection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="none3" id="drop2">
+                <div class="grid" onmouseleave="Access2()">
+                    <div class="grid_item">
+                        <div>
+                            <h3>SHOP BY</h3>
+                        </div>
+                        <li>Laces</li>
+                        <li>Socks</li>
+                        <li>Threads</li>
+                        <li>Sale</li>
+                        <li>Shop All</li>
+                    </div>
+                    <div class="grid_item2">
+                        <h3>FEATURED</h3>
+
+                        <div class="grid2">
+                            <div class="grid_item3">
+                                <img src="image/shoe1.jpg" alt="" class="over1">
+                                <div>
+                                    <span>What's New</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/shoe2.jpg" alt="" class="over1">
+                                <div>
+                                    <span>Complete Your Look</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/shoe3.jpg" alt="" class="over1">
+                                <div>
+                                    <span>Best Sellers</span>
+                                </div>
+                            </div>
+                            <div class="grid_item3">
+                                <img src="image/shoe4.jpg" alt="" class="over1">
+                                <div>
+                                    <span>Gift Cards</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 130px; line-height: .1em; position: relative;">
+        <h3 style="margin-left: 30px; margin-bottom: 0px;">ALL MEN'S</h3>
+        <div
+            style="display: flex; justify-content: space-between; margin-left: 30px; margin-right: 30px; align-items: center;">
+            <p style="font-size: 38px; font-family: 'Times New Roman', Times, serif;">Shop By Style</p>
+            <p>63 Results</p>
+        </div>
+    </div>
+
+    <div class="grid5" id="grid5">
+        <div class="grid_item5" style="text-align: center;">
+            <div class="hover">
+                <img src="image/Lifestyle.jpg" alt="" class="image">
+                <span>Lifestyle</span>
+            </div>
+        </div>
+        <div class="grid_item5" style="text-align: center;">
+            <div class="hover">
+                <img src="image/Runners.webp" alt="" class="image">
+                <span>Runners</span>
+            </div>
+        </div>
+        <div class="grid_item5" style="text-align: center;">
+            <div class="hover">
+                <img src="image/High-Tops.webp" alt="" class="image">
+                <span>High Tops</span>
+            </div>
+        </div>
+        <div class="grid_item5" style="text-align: center;">
+            <div class="hover">
+                <img src="image/Loafers_5bcce442-a6e2-4b90-a9ea-8ef618b1cc45.webp" alt="" class="image">
+                <span>Loafters</span>
+            </div>
+        </div>
+    </div>
+    <div style="border-bottom: 2px solid rgb(197, 196, 196); width: 95%; margin: 40px auto; "></div>
+
+    <div style="display: flex; justify-content: space-between; margin-left: 30px; margin-right: 60px;">
+
+        <button
+            style="width: 250px; height: 50px; display: flex; cursor: pointer; align-items: center; justify-content: space-between; font-size: 1rem; font-weight: 700; border-radius: 30px; background-color: rgba(255, 255, 255, 0.363); border: 2px solid rgb(197, 196, 196);">
+            show Filters
+            <div>
+                <img src="image/filter_icon.svg" alt="" style="width: 30px;">
+            </div>
+        </button>
+        <button
+            style="width: 250px; height: 50px; display: flex; display: none; cursor: pointer; align-items: center; justify-content: space-between; font-size: 1rem; font-weight: 700; border-radius: 30px; background-color: rgba(255, 255, 255, 0.363); border: 2px solid rgb(197, 196, 196);">
+            show Filters
+            <div>
+                <img src="image/filter_icon.svg" alt="" style="width: 30px;">
+            </div>
+        </button>
+        <button
+            style="width: 200px; height: 50px; display: flex; cursor: pointer; align-items: center; justify-content: space-between; font-size: 1rem; font-weight: 700; border-radius: 30px; background-color: rgba(255, 255, 255, 0.363); border: 2px solid rgb(197, 196, 196);">
+            <p id="valry">Newest Arrival</p>
+            <div>
+                <img src="image/ar1.png" alt="" style="width: 15px; " id="img_all">
+                <img src="image/ar2.png" alt="" style="width: 15px; display: none;" id="img_all2">
+            </div>
+        </button>
+    </div>
+    </div>
+    <div style="display: flex; justify-content: right; margin-right: 58px; list-style: none; display: none;" id="all1">
+        <div
+            style="background-color: white; line-height: 1.4em; z-index: 1000; position: absolute; font-size: .8rem; box-shadow: 0 6px 12px rgba(0,0,0,.175);  padding: 10px; width: 170px; margin-top: 10px; cursor: pointer;">
+            <li id="one1">Best match</li>
+            <li id="two2">Price: Low to High</li>
+            <li id="three3">Price: High to Low</li>
+            <li id="four4">Newest Arrival</li>
+        </div>
+    </div>
+
+    <div
+        style="display: grid; grid-template-columns: 1fr 4fr; margin-left: 20px; gap: 20px; margin-right: 10px; margin-top: 30px;">
+        <div style="background-attachment: fixed; height: 500px; overflow-y: scroll; height: 270px; margin-left: 10px;">
+            <div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgb(197, 196, 196);">
+                    <div>
+                        <p>Category</p>
+                    </div>
+                    <div><img src="image/ar1.png" alt="" style="width: 15px;" id="click1"></div>
+                    <img src="image/ar2.png" alt="" style="width: 15px; height: px;; display: none;" id="click2">
+                </div>
+                <div style="margin-left: 20px; display: none;" id="category">
+                    <h3>Runners</h3>
+                    <h3>Loafters</h3>
+                    <h3>High Tops</h3>
+                    <h3>Low Tops</h3>
+                    <h3>Lifestyle</h3>
+                    <h3>Mid</h3>
+                </div>
+            </div>
+            <div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgb(197, 196, 196);">
+                    <div>
+                        <p>Color</p>
+                    </div>
+                    <div><img src="image/ar1.png" alt="" style="width: 15px;" id="click3"></div>
+                    <img src="image/ar2.png" alt="" style="width: 15px; height: px;; display: none;" id="click4">
+                </div>
+                <div style="margin-left: 20px; display: none;" id="color">
+                    <h3>Black</h3>
+                    <h3>White</h3>
+                    <h3>Brown</h3>
+                    <h3>Blue</h3>
+                    <h3>Green</h3>
+                    <h3>Grey</h3>
+                    <h3>Beige</h3>
+                    <h3>Red</h3>
+                    <h3>Navy</h3>
+                    <h3>Tan</h3>
+                </div>
+            </div>
+            <div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; overflow: hidden; border-bottom: 2px solid rgb(197, 196, 196);">
+                    <div>
+                        <p>Size</p>
+                    </div>
+                    <div><img src="image/ar1.png" alt="" style="width: 15px;" id="click5"></div>
+                    <img src="image/ar2.png" alt="" style="width: 15px; height: px;; display: none;" id="click6">
+                </div>
+                <div style="margin-left: 20px; display: none;" id="size">
+                    <h3>7</h3>
+                    <h3>8</h3>
+                    <h3>8.5</h3>
+                    <h3>9</h3>
+                    <h3>9.5</h3>
+                    <h3>10</h3>
+                    <h3>10.5</h3>
+                    <h3>11</h3>
+                    <h3>11.5</h3>
+                    <h3>12</h3>
+                    <h3>13</h3>
+                    <h3>14</h3>
+                    <h3>15</h3>
+                    <h3>16</h3>
+                    <h3>17</h3>
+                    <h3>18</h3>
+                    <h3>19</h3>
+                    <h3>20</h3>
+                    <h3>21</h3>
+                    <h3>22</h3>
+                </div>
+            </div>
+
+            <div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; overflow: hidden; border-bottom: 2px solid rgb(197, 196, 196);">
+                    <div>
+                        <p>Materials</p>
+                    </div>
+                    <div> <img src="image/ar1.png" alt="" style="width: 15px;" id="click9"></div>
+                    <img src="image/ar2.png" alt="" style="width: 15px; height: px;; display: none;" id="click">
+                </div>
+                <div style="margin-left: 20px; display: none;" id="materials">
+                    <h3>Leather</h3>
+                    <h3>Seuede</h3>
+                    <h3>Nubuck</h3>
+                    <h3>Knit</h3>
+                </div>
+            </div>
+            <div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; overflow: hidden; border-bottom: 2px solid rgb(197, 196, 196);">
+                    <div>
+                        <p>Style</p>
+                    </div>
+                    <div><img src="image/ar1.png" alt="" style="width: 15px;" id="click7"></div>
+                    <img src="image/ar2.png" alt="" style="width: 15px; height: px;; display: none;" id="click8">
+                </div>
+                <div style="margin-left: 20px; display: none;" id="style">
+                    <h3>Royale 2.0</h3>
+                    <h3>St James</h3>
+                    <h3>Charlie Distressed</h3>
+                    <h3>Essex</h3>
+                    <h3>Greenpoint Runner</h3>
+                    <h3>Reign</h3>
+                    <h3>Charlie</h3>
+                    <h3>JMZ Courth</h3>
+                    <h3>JMZ High</h3>
+                    <h3>Royale 2.0 High</h3>
+                    <h3>Reign High</h3>
+                    <h3>BRC High</h3>
+                    <h3>GAT</h3>
+
+                </div>
+            </div>
+        </div>
+        <div class="dis_grid" style="background-attachment:scroll;" id="dis_grid">
+
+        </div>
+    </div>
+
+
+
+
+    <div class="cart" id="cart">
+        <div
+            style="display: flex; cursor: pointer; align-items: center; justify-content: space-between; margin-left: 15px; margin-right: 15px; margin-top: 15px; border-bottom: .3px solid #f2f2f231;">
+            <div id="close"
+                style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 50%; border: none;">
+                <span>X</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <p style="color: white; font-weight: 700; font-size: 1.8rem;">Cart</p>
+                <div
+                    style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: none; background-color: blue;">
+                    <span style="text-align: center; color: white;" id="zero1">0</span>
+                </div>
+            </div>
+        </div>
+        <div style="overflow-y: scroll;">
+            <!-- <p style="border-bottom: .3px solid #f2f2f231; color: white; text-align: center; margin-left: 15px; margin-right: 15px; padding-bottom: 30px; padding-top: 20px;"></p> -->
+            <div
+                style="display: flex; color: white; justify-content: space-between; margin-left: 20px; margin-right: 20px; align-items: flex-start;">
+                <div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 20px;">
+                    <div>
+                        <img src="image/dig1.webp" alt="" style="width: 100px;">
+                    </div>
+                    <div>
+                        <div style="display: flex; gap: 190px;">
+                            <div style="line-height: 1.5em;">
+                                <span>Shoe<br></span>
+                                <span>Color: red</span>
+                            </div>
+                            <div>
+                                <span style="cursor: pointer;">X</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 35px;">
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <button id="decrease" style="font-size: 1.2rem; background-color: #141415; border: none; color: white">-</button>
+                                <span id="zero"></span>
+                                <button id="increase" style="font-size: 1.2rem; background-color: #141415; border: none; color: white;">+</button>
+                            </div>
+                            <div>
+                                <span>$180.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-bottom: .3px solid #f2f2f231; margin-left: 15px; margin-right: 15px; margin-top: 20px;"></div>
+        </div>
+        <div class="total">
+            <div>
+                <div style="color: white; display: flex; justify-content: space-between; align-items: center; ">
+                    <p>Subtotal</p>
+                    <p>$0.00</p>
+                </div>
+                <div style=" color: white; display: flex; justify-content: space-between; align-items: center; ">
+                    <p>Shipping</p>
+                    <p>Calculated at checkout</p>
+                </div>
+                <button
+                    style="width: 410px; height: 45px; background-color: #b8b8b980; color: black; font-weight: 700; font-size: 1.2rem; text-align: center; border: none;">Empty
+                    Cart</button>
+                    <button
+                    style=" display: none; width: 410px; height: 45px; background-color: white; color: black; font-weight: 700; font-size: 1.2rem; text-align: center; border: none;">PROCEED TO CHECKOUT</button>
+                <div style="font-size: .5rem; text-align: center; color: white; margin-top: 9px;">
+                    <span>Taxes Calculated at checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="front" id="overlay">
+
+    </div>
+
+
+    <footer style="background-color: #f7f7f7; height: 450px;">
+        <div
+            style="display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; gap: 230px; display: flex; align-items: center; margin-top: 40px;">
+            <div style="line-height: .4em; margin-left: 30px;">
+                <span style="font-size: 40px; font-family: 'Times New Roman', Times, serif;">Stay in the Know</span>
+                <p style="margin-top: 30px;">Sign up to get first dibs on new launches,</p>
+                <p> promos, 20% off your first purchase, and other</p>
+                <p style="margin-bottom: 30px;">news.</p>
+                <div style="display: flex; margin-bottom: 10px;">
+                    <input type="email" placeholder="Enter Email" class="email_input" id="emailErr" />
+                    <button class="sign_button" onclick="sub()">SIGN UP</button>
+                </div>
+                <div><span style="font-size: 1rem; color: red;" id="span"></span></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; line-height: 2em;">
+                <div>
+                    <p style="margin-bottom: 20px; font-weight: 700;">About Us</p>
+                    <span>Our Story</span>
+                    <span>Reviews</span>
+                </div>
+                <div>
+                    <p style="margin-bottom: 70px; font-weight: 700;"></p>
+                    <span>The Playbook</span>
+                    <span>Military Discount</span>
+                </div>
+                <div>
+                    <p style="margin-bottom: 20px; font-weight: 700;">Customer Service</p>
+                    <span>Need Help?</span>
+                    <span>Size Guide</span>
+                    <span>Shipping</span>
+                    <span>Accessibility</span>
+                </div>
+                <div>
+                    <p style="margin-bottom: 70px; font-weight: 700;"></p>
+                    <span>Returns<br></span>
+                    <span>Gift Cards<br></span>
+                    <span>Refer a friend</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div
+                style="display: flex; gap: 15px ; align-items: center; margin-left: 30px; margin-bottom: 20px; margin-top: 40px;">
+                <div id="instagram">
+                    <img src="image/instagram.png" alt="" style="width: 22px;">
+                </div>
+                <div id="face">
+                    <img src="image/face.png" alt="" style="width: 22px;">
+                </div>
+                <div id="twitter">
+                    <img src="image/twitter.png" alt="" style="width: 22px;">
+                </div>
+                <div id="youtube">
+                    <img src="image/youtube.png" alt="" style="width: 22px;">
+                </div>
+            </div>
+            <div style="display: flex; gap: 20px; align-items: center; margin-left: 30px;">
+                <div>
+                    <p>® 2024 All Rights Reserved.</p>
+                </div>
+                <p>Privacy policy</p>
+                <p>Terms & Conditions</p>
+            </div>
+        </div>
+
+
+
+
+    </footer>
+
+    <div class="modal" id="modal">
+        <div style="display: flex; justify-content: right; margin-right: 20px;">
+            <button id="btn"
+                style="font-size: 1.3rem; margin-top: 10px; background-color: rgba(255, 255, 255, 0.105); border: none; cursor: pointer;">X</button>
+        </div>
+        <div
+            style="line-height: .1em; font-size: 40px; color: rgb(1, 88, 1); font-family: 'Times New Roman', Times, serif; text-align: center;">
+            <p>Found Something You</p>
+            <p>Like But It's Out Of</p>
+            <p>Stock?</p>
+        </div>
+        <div style="font-size: 1rem; font-weight: 700; color: rgb(1, 88, 1); text-align: center;">
+            <span>We're currently moving to a new fulfillment center,<br></span>
+            <span>which is causing some styles to be temporarily<br></span>
+            <span>unavailable online.<br></span>
+            <span>Sign up for a back-in-stock alert to be notified when a<br></span>
+            <span>particular style is available again, and make sure to<br></span>
+            <span>check back in early October for exciting new drops!<br></span>
+            <p style="margin-top: 30px;">Thanks for your patience — we promise it'll be worth<br></p>
+            <span>the wait.</span>
+        </div>
+        <div style="margin: 10px; display: flex; justify-content: center; ">
+            <button id="btn1"
+                style="width: 500px; cursor: pointer; height: 50px; border-radius: 50px; border: none; color: white; font-size: 1.3rem; background-color: green; font-weight: 700;">KEEP
+                BROWSING</button>
+        </div>
+    </div>
+    <div class="position" id="post">
+        <div>
+            <h3>Need<br>help?</h3>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

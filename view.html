@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="dash">
+        <div class="but_add">
+            <a href="dash.html">
+                <div><button
+                    style="width: 200px; border: none; margin-left: 20px; margin-top: 40px; margin-bottom: 20px; height: 40px; color: white; cursor: pointer; background-color: black; border-radius: 5px;">Dashboard</button>
+            </div>
+            </a>
+            <a href="add.html">
+                <div><button
+                        style="width: 200px; border: none; margin-left: 20px; height: 40px; color: white; background-color: black; border-radius: 5px; cursor: pointer;">Add
+                        product</button></div>
+            </a>
+            <a href="category.html">
+                <div><button
+                        style="margin-top: 20px; width: 200px; border: none; margin-left: 20px; height: 40px; color: white; background-color: black; border-radius: 5px; cursor: pointer;">Category</button>
+                </div>
+            </a>
+            <a href="delete.html">
+                <div><button
+                        style="margin-top: 20px; width: 200px; border: none; margin-left: 20px; height: 40px; color: white; background-color: black; border-radius: 5px; cursor: pointer;">View all product</button>
+                </div>
+            </a>
+            <div style="display: flex; justify-content: right; margin-right: 30px; line-height: 30em;">
+                <a href="log.html" style="color: black; text-decoration: none;">
+                    <span>Sign out</span>
+                </a>
+            </div>
+        </div>
+        <div class="other">
+            <div style="background-color: white; width: 100%; height: 70px; position: fixed;">
+                <div class="nav_dash">
+                    <div style="display: flex; justify-content: right; margin-right: 20px; font-size: 1.1rem;">
+                        <p>Delete</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; margin-left: 320px; margin-top: 100px;"
+            id="grid">
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            let merchant = localStorage.getItem('user')
+
+            fetch(`http://ecommerce.reworkstaging.name.ng/v2/products?merchant_id=${merchant}`)
+                .then(res =>
+                    res.json())
+                .then(res => {
+                    let dataArray = res?.data
+                    if (dataArray && Array.isArray(dataArray)) {
+                        dataArray.forEach(e => {
+                            let grid = document.getElementById('grid')
+                            let Isgrid = document.createElement('div')
+                            Isgrid.innerHTML = `
+                <div style="width: 100%;">
+                    <div>
+                        <img src=${e.image} alt="" style="width: 300px;">              
+                    </div>
+                    <div>
+                        <p>${e.brand}</p>
+                       
+                    </div>
+                </div>
+              <div class='olazzy' data-product-id="${e.id}">
+                  <button  style="background-color: black; color: white; border: none; border-radius: 5px; width: 100px; height: 30px;">Delete</button>
+                </div>
+                `
+                            grid.append(Isgrid)
+                        })
+                        $('.olazzy').on('click', function (e) {
+                            e.preventDefault()
+                            let productId = $(this).closest('div').attr('data-product-id');
+                            console.log('Product ID:', productId);
+                            let merchant = localStorage.getItem('user')
+
+                            let confirmProduct = confirm('Are you sure you want to delete this products')
+                            if(confirmProduct){
+                                $.ajax({
+                                    url: `http://ecommerce.reworkstaging.name.ng/v2/products/${productId}`,
+                                    method: 'DELETE',
+                                    success: function (res) {
+                                        alert('product deleted')
+                                        console.log(res)
+                                    },
+                                    error: function (error) {
+                                        console.log(error)
+                                        alert('failed to delete product')
+                                    },
+                                })      
+                                }else{
+                                    alert('Delete cancellation')
+                                }
+                        })
+
+
+                    }
+                }
+                )
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,378 @@
+
+    <script>
+        
+
+
+
+
+  $(document).ready(function () {
+    $('#api').on('click', function (e) {
+      e.preventDefault();
+      fetch('http://ecommerce.reworkstaging.name.ng/v2/products/670be74380dc2036200175ba')
+        .then(res => res.json())
+        .then(data => { // Changed 'res' to 'data' for clarity
+          console.log(data);
+          alert('product added to cart')
+          let productImage;
+          if (data.images) {
+            productImage = data.images[0];
+          } else if (data.category && data.category.image) {
+            productImage = data.category.image;
+          } else {
+            productImage = '/default-image.jpg'; // Default image
+          }
+
+          // Assuming img, slip, and money are HTML elements
+          let img = $('#img');
+          let slip = $('#slip');
+          let money = $('#money');
+
+          // No need to create new elements, append HTML to existing ones
+          img.html(`
+            <img src="${productImage}" alt="" style="width: 100px;">
+          `);
+
+          slip.html(`
+            <span>${data.brand}</span>
+          `);
+
+          money.html(`
+            <span>$${data.price}</span>
+          `);
+        })
+        
+        // .catch(error => console.error('Error:', error)); // Added error handling
+    })
+  })
+    </script>
+
+
+
+// <div
+// style="background-color: rgba(255, 255, 255, 0.477); border: .1px solid rgb(200, 200, 200); height: 440px;">
+// <div class="good3">
+//     <img src="image/git1.webp" alt="" id="good3" class="good1" style="position: relative;">
+//     <!-- <button id="buut"
+//         style="width: 110px; height: 30px; border-radius: 30px; font-weight: 700; margin-top: 10px; margin-left: 170px; background-color: rgba(255, 255, 255, 0.479) ; border: .6px solid black; font-size: .7rem;">BACK
+//         IN STOCK</button> -->
+// </div>
+// <div style="margin-left: 10px;">
+//     <div style="line-height: .4em;">
+//         <div style="display: flex; gap: 20px;">
+//             <p>Men's Royale 2.0</p>
+//             <p>$189.00</p>
+//         </div>
+//         <span style="font-style: italic; font-size: .8rem;" id="text2">Cuoio</span>
+//     </div>
+//     <div style="display: flex; gap: 10px;">
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/peg1.png) ; background-position: center; object-fit:scale-down;"
+//             id="git1">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/peg2.png) ; background-position: center; object-fit:scale-down;"
+//             id="git2">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/peg3.png) ; background-position: center; object-fit:scale-down; "
+//             id="git3">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/peg4.png) ; background-position: center; object-fit:scale-down;"
+//             id="git4">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/peg5.png) ; background-position: center; object-fit:scale-down;"
+//             id="git5">
+
+//         </div>
+//     </div>
+//     <div
+//         style="display: flex; justify-content: space-between; align-items: center; margin-left: 10px; margin-right: 10px;">
+//         <p>Quick add</p>
+//         <p style="font-size: 1.2rem; cursor: pointer;">+</p>
+//     </div>
+// </div>
+// </div>
+// <div
+// style="background-color: rgba(255, 255, 255, 0.477); border: .1px solid rgb(200, 200, 200); height: 440px;">
+// <div class="good4">
+//     <img src="image/key5.jpg" alt="" id="good4" class="good4" style="position: relative;">
+//     <!-- <button id="buut"
+//         style="width: 110px;  height: 30px; border-radius: 30px; font-weight: 700; margin-top: 10px; margin-left: 170px; background-color: rgba(255, 255, 255, 0.479) ; border: .6px solid black; font-size: .7rem;">BACK
+//         IN STOCK</button> -->
+// </div>
+// <div style="margin-left: 10px;">
+//     <div style="line-height: .4em;">
+//         <div style="display: flex; gap: 5px; align-items: center;">
+//             <p style="font-size: .9rem;">Men's Essex Penny Loafter</p>
+//             <div style="display: flex; gap: 4px;">
+//                 <span style="text-decoration: line-through;">$189.00</span>
+//                 <span style="color: red;">$129.00</span>
+//             </div>
+//         </div>
+//         <span style="font-style: italic; font-size: .8rem;" id="text4">Cuoio</span>
+//     </div>
+//     <div style="display: flex; gap: 10px;">
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led5.png) ; background-position: center; background-size: contain;"
+//             id="pra1">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led2.png) ; background-position: center; background-size: contain;"
+//             id="pra2">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led1.png) ; background-position: center; background-size: contain; "
+//             id="pra3">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led3.png) ; background-position: center; background-size: contain;"
+//             id="pra4">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led4.png) ; background-position: center; background-size: contain;"
+//             id="pra5">
+
+//         </div>
+//     </div>
+//     <div
+//         style="display: flex; justify-content: space-between; align-items: center; margin-left: 10px; margin-right: 10px;">
+//         <p>Quick add</p>
+//         <p style="font-size: 1.2rem; cursor: pointer;">+</p>
+//     </div>
+// </div>
+// </div>
+// <div
+// style="background-color: rgba(255, 255, 255, 0.477); border: .1px solid rgb(200, 200, 200); height: 440px;">
+// <div class="good5">
+//     <img src="image/rop1.jpg" alt="" id="good5" class="good5" style="position: relative;">
+//     <!-- <button id="buut"
+//         style="width: 110px;  height: 30px; border-radius: 30px; font-weight: 700; margin-top: 10px; margin-left: 170px; background-color: rgba(255, 255, 255, 0.479) ; border: .6px solid black; font-size: .7rem;">BACK
+//         IN STOCK</button> -->
+// </div>
+// <div style="margin-left: 10px;">
+//     <div style="line-height: .4em;">
+//         <div style="display: flex; gap: 20px;">
+//             <p>Men's Royale 2.0 High</p>
+//             <p>$220.00</p>
+//         </div>
+//         <span style="font-style: italic; font-size: .8rem;" id="text5">Blanco</span>
+//     </div>
+//     <div style="display: flex; gap: 10px;">
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/dot1.png) ; background-position: center; background-size: contain;"
+//             id="dot1">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/dot2.png) ; background-position: center; background-size: contain;"
+//             id="dot2">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/dot3.png) ; background-position: center; background-size: contain; "
+//             id="dot3">
+
+//         </div>
+//     </div>
+//     <div
+//         style="display: flex; justify-content: space-between; align-items: center; margin-left: 10px; margin-right: 10px;">
+//         <p>Quick add</p>
+//         <p style="font-size: 1.2rem; cursor: pointer;">+</p>
+//     </div>
+// </div>
+// </div>
+// <div
+// style="background-color: rgba(255, 255, 255, 0.477); border: .1px solid rgb(200, 200, 200); height: 440px;">
+// <div class="good6">
+//     <img src="image/key2.jpg" alt="" id="good6" class="good6" style="position: relative;">
+//     <!-- <button id="buut"
+//     style="width: 110px;  height: 30px; border-radius: 30px; font-weight: 700; margin-top: 10px; margin-left: 170px; background-color: rgba(255, 255, 255, 0.479) ; border: .6px solid black; font-size: .7rem;">BACK
+//     IN STOCK</button> -->
+// </div>
+// <div style="margin-left: 10px;">
+//     <div style="line-height: .4em;">
+//         <div style="display: flex; gap: 20px;">
+//             <p>Men's Essex Penny Loafte</p>
+//             <p>$189.00</p>
+//         </div>
+//         <span style="font-style: italic; font-size: .8rem;" id="text6">Black/White</span>
+//     </div>
+//     <div style="display: flex; gap: 10px;">
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led2.png) ; background-position: center; background-size: contain;"
+//             id="rus1">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led1.png) ; background-position: center; background-size: contain;"
+//             id="rus2">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led3.png) ; background-position: center; background-size: contain; "
+//             id="rus3">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led4.png) ; background-position: center; background-size: contain;"
+//             id="rus4">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led5.png) ; background-position: center; background-size: contain;"
+//             id="rus5">
+
+//         </div>
+//     </div>
+//     <div
+//         style="display: flex; justify-content: space-between; align-items: center; margin-left: 10px; margin-right: 10px;">
+//         <p>Quick add</p>
+//         <p style="font-size: 1.2rem; cursor: pointer;">+</p>
+//     </div>
+// </div>
+// </div>
+// <div
+// style="background-color: rgba(255, 255, 255, 0.477); border: .1px solid rgb(200, 200, 200); height: 440px;">
+// <div class="good7">
+//     <img src="image/key4.jpg" alt="" id="good7" class="good7" style="position: relative;">
+//     <!-- <button id="buut"
+//     style="width: 110px; z-index: 100; position: absolute; right: 55%; height: 30px; border-radius: 30px; font-weight: 700; margin-top: 10px; margin-left: 170px; background-color: rgba(255, 255, 255, 0.479) ; border: .6px solid black; font-size: .7rem;">BACK
+//     IN STOCK</button> -->
+// </div>
+// <div style="margin-left: 10px;">
+//     <div style="line-height: .4em;">
+//         <div style="display: flex; gap: 20px;">
+//             <p>Men's Essex Penny Loafte</p>
+//             <p>$189.00</p>
+//         </div>
+//         <span style="font-style: italic; font-size: .8rem;" id="text7">Blue Multi</span>
+//     </div>
+//     <div style="display: flex; gap: 10px;">
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led4.png) ; background-position: center; background-size: contain;"
+//             id="dus1">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led2.png) ; background-position: center; background-size: contain;"
+//             id="dus2">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led1.png) ; background-position: center; background-size: contain; "
+//             id="dus3">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led3.png) ; background-position: center; background-size: contain;"
+//             id="dus4">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/led5.png) ; background-position: center; background-size: contain;"
+//             id="dus5">
+
+//         </div>
+//     </div>
+//     <div
+//         style="display: flex; justify-content: space-between; align-items: center; margin-left: 10px; margin-right: 10px;">
+//         <p>Quick add</p>
+//         <p style="font-size: 1.2rem; cursor: pointer;">+</p>
+//     </div>
+// </div>
+// </div>
+// <div
+// style="background-color: rgba(255, 255, 255, 0.477); border: .1px solid rgb(200, 200, 200); height: 440px;">
+// <div class="good8">
+//     <img src="image/sun1.jpg" alt="" id="good8" class="good8" style="position: relative;">
+//     <!-- <button id="buut"
+//         style="width: 110px; z-index: 100; position: absolute; right: 55%; height: 30px; border-radius: 30px; font-weight: 700; margin-top: 10px; margin-left: 170px; background-color: rgba(255, 255, 255, 0.479) ; border: .6px solid black; font-size: .7rem;">BACK
+//         IN STOCK</button> -->
+// </div>
+// <div style="margin-left: 10px;">
+//     <div style="line-height: .4em;">
+//         <div style="display: flex; gap: 20px;">
+//             <p>Men's Charlie Distressed</p>
+//             <p>$230.00</p>
+//         </div>
+//         <span style="font-style: italic; font-size: .8rem;" id="text">Black/Grey</span>
+//     </div>
+//     <div style="display: flex; gap: 10px;">
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/ash.png) ; background-position: center; object-fit:scale-down;"
+//             id="ash">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/white.png) ; background-position: center; object-fit:scale-down;"
+//             id="white">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/black.png) ; background-position: center; object-fit:scale-down; "
+//             id="black">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/brown.png) ; background-position: center; object-fit:scale-down;"
+//             id="brown">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/one.png) ; background-position: center; object-fit:scale-down;"
+//             id="one">
+
+//         </div>
+//     </div>
+//     <div
+//         style="display: flex; justify-content: space-between; align-items: center; margin-left: 10px; margin-right: 10px;">
+//         <p>Quick add</p>
+//         <p style="font-size: 1.2rem; cursor: pointer;">+</p>
+//     </div>
+// </div>
+// </div>
+
+
+// <div
+// style="background-color: rgba(255, 255, 255, 0.477); border: .1px solid rgb(200, 200, 200); height: 440px;">
+// <div class="good9">
+//     <img src="image/sun1.jpg" alt="" id="good9" class="good9" style="position: relative;">
+//     <!-- <button
+//         style="width: 110px;  height: 30px; border-radius: 30px; font-weight: 700; margin-top: 10px; margin-left: 170px; background-color: rgba(255, 255, 255, 0.479) ; border: .6px solid black; font-size: .7rem;">MADE IN ITALY</button> -->
+// </div>
+// <div style="margin-left: 10px;">
+//     <div style="line-height: .4em;">
+//         <div style="display: flex; gap: 20px;">
+//             <p>$230.00</p>
+//         </div>
+//         <span style="font-style: italic; font-size: .8rem;" id="text">Blaco</span>
+//     </div>
+//     <div style="display: flex; gap: 10px;">
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/ash.png) ; background-position: center; background-size: contain;"
+//             id="zep1">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/white.png) ; background-position: center; background-size: contain;"
+//             id="zep2">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/black.png) ; background-position: center;  background-size: contain;"
+//             id="zep3">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/brown.png) ; background-position: center; background-size: contain;"
+//             id="zep4">
+
+//         </div>
+//         <div style="width: 30px; height: 30px; border-radius: 50%; margin-top: 10px; background-image: url(image/one.png) ; background-position: center; background-size: contain;"
+//             id="zep5">
+
+//         </div>
+//     </div>
+//     <div
+//         style="display: flex; justify-content: space-between; align-items: center; margin-left: 10px; margin-right: 10px;">
+//         <p>Quick add</p>
+//         <p style="font-size: 1.2rem; cursor: pointer;">+</p>
+//     </div>
+// </div>
+// </div>
+
+
+
+categoryId = selectedId
+localStorage.setItem('select', categoryId)
+ console.log('working')
+ // let merchant = localStorage.getItem('user')
+ let selected = localStorage.getItem('select')
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Enter login details</h1>
+
+        <form id="form">
+            <div>
+                <input name="first_name" id="first" placeholder="Enter first name" />
+                <div><span id="Aerr"></span></div>
+            </div>
+            <div>
+                <input name="last_name" id="last" placeholder="Enter last name" />
+                <div><span id="Berr"></span></div>
+            </div>
+            <div> 
+                <input name="email" id="email" placeholder="Enter email address" />
+                <div><span id="Cerr"></span></div>
+            </div>
+            <div>
+                <input name="phone" id="phone" type="number" placeholder="Enter phone number" />
+                <div><span id="Derr"></span></div>
+            </div>
+            <div>
+                <input name="store_name" id="name" placeholder="Enter store name" />
+                <div><span id="Eerr"></span></div> 
+            </div>
+            <div>
+                <input name="password" id="password" placeholder="Enter password" /> 
+                <div><span id="Ierr"></span></div>
+            </div>
+            <div>
+                <textarea name="descp" id="description"></textarea>
+                <div><span id="Ferr"></span></div>
+            </div>
+            <div>
+                <select name="social_media" id="social">
+                    <option value="">Select</option>
+                    <option value="1">X</option>
+                    <option value="2">face_book</option>
+                    <option value="3">instagram</option>
+                </select>
+                <div><span id="Herr"></span></div>
+            </div>
+            <button>Register</button>
+        </form>
+    </div>
+
+    <script>
+        //    btn.addEventListener = function (e){
+        //     e.preventDefault()
+        //     let first_name = document.getElementsByName('first_name').value
+        //     console.log(first_name)
+        //    }
+        // function btn(){
+        //     let first_name = document.getElementById('first').value
+        //     let last_name = document.getElementById('last').value
+        //     let store_name = document.getElementById('name').value
+        //     let icon = document.getElementById('icon').value
+        //     let banner = document.getElementById('banner').value
+        //     let description = document.getElementById('description').value
+        //     console.log(first_name)
+        //     console.log(last_name)
+        //     console.log(store_name)
+        //     console.log(icon)
+        //     console.log(description)
+        //     console.log(banner)
+        // }
+
+        $(document).ready(function () {
+            let baseUrl = 'http://e-commerce.reworkstaging.name.ng/v2/merchants/6705038080dc203620fffc7a'
+            $('#form').on('submit', function (e) {
+                let valid = true;
+                e.preventDefault()
+                let emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+                let passRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+                let first = $('#first').val()
+                let last = $('#last').val()
+                let name = $('#name').val()
+                let email = $('#email').val()
+                let phone = $('#phone').val()
+                let password = $('#password').val()
+                let description = $('#description').val()
+                let social = $('#social').val()
+
+
+                let Aerr = $('#Aerr')
+                let Berr = $('#Berr')
+                let Cerr = $('#Cerr')
+                let Derr = $('#Derr')
+                let Eerr = $('#Eerr')
+                let Ierr = $('#Ierr')
+                let Ferr = $('#Ferr')
+                let Herr = $('#Herr')
+                if(first === ""){
+                    Aerr.text('First Name Canot Be Empty')
+                    valid = false
+                }else{
+                    Aerr.text('')
+                }if(last === ""){
+                    Berr.text('Last Name Cannot Be Empty')
+                    valid = false
+                }else{
+                    Berr.text('')
+                }if(name === ""){
+                    Eerr.text('Store Cannot Be Empty')
+                    valid = false
+                }else{
+                    Eerr.text('')
+                }if(email === ""){
+                    Cerr.text('Please Enter an Email Address')
+                    valid = false
+                }else if(!emailRegex.test(email)){
+                    Cerr.text('Please Entebr a Correct Email Address')
+                    valid = false
+                }else{
+                    Cerr.text('')
+                }if(password === ""){
+                    Ierr.text('Please Enter a Password')
+                    valid = false
+                }else if(!passRegex.test(password)){
+                    Ierr.text('Password must contain 1-9, A-Z, a-z and !')
+                    valid = false
+                }else{
+                    Ierr.text('')
+                }if(phone === ""){
+                    Derr.text('Please Enter a Phone Number')
+                    valid = false
+                }else{
+                    Derr.text('')
+                }if(description === ""){
+                    Ferr.text('Please write down a description')
+                    valid = false
+                }else{
+                    Ferr.text('')
+                }if(social === ""){
+                    Herr.text('Please select a social media')
+                    valid = false
+                }else{
+                    Herr.text('')
+                }
+                if(valid == true){
+                    let userId = localStorage.getItem('user')
+                    $.ajax({
+                    url: 'http://ecommerce.reworkstaging.name.ng/v2/merchants/userId',
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        first_name: first,
+                        last_name: last,
+                        password: password,
+                        email: email,
+                        phone: phone,
+                        descp: description,
+                        name: name,
+                        social: social,
+                    }),
+                    // processData: false,
+                    success: function (res) {
+                        alert('Registration Successful!')
+                        console.log(res)
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        alert('Registration failed ' + error)
+                        // console.log(error)
+                    }
+                })
+            }else{
+                
+            }
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>

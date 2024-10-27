@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Enter login details</h1>
+
+        <form id="form">
+            <div> 
+                <input name="old_password" id="oldPass" placeholder="Enter old_password" />
+                <div><span id="Aerr"></span></div>
+            </div>
+            <div>
+                <input name="new_password" id="password" placeholder="Enter new_password" /> 
+                <div><span id="Berr"></span></div>
+            </div>
+            <button>Register</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let baseUrl = 'http://e-commerce.reworkstaging.name.ng/v2'
+            $('#form').on('submit', function (e) {
+                let valid = true
+                e.preventDefault()
+                let oldPass = $('#oldPass').val()
+                let password = $('#password').val()
+                let Aerr = $('#Aerr')
+                let Berr = $('#Berr')
+                let passRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+                if(oldPass === ""){
+                    Aerr.text('Please enter your old password')
+                    valid = false
+                }else if(!passRegex.test(oldPass)){
+                    Aerr.text('Please enter a correct password')
+                    valid = false
+                }else{
+                    Aerr.text('')
+                }if(password === ""){
+                    Berr.text('Please enter a new password')
+                    valid = false
+                }else if(!passRegex.test(password)){
+                    Berr.text('New Password must contain 1-9, A-Z, a-z and !')
+                    valid = false
+                }else{
+                    Berr.text('')
+                }
+                if(valid == true){
+                $.ajax({
+                    url: 'http://ecommerce.reworkstaging.name.ng/v2/merchants/670517e780dc203620fffd11/change-passwd',
+                    type: 'PUT',
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        oldPass: oldPass,
+                        password: password,
+                    }),
+                    // processData: false,
+                    success: function (res) {
+                        alert('Login Successful!')
+                        console.log(res)
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        alert('Login failed')
+                    }
+                })}else{
+
+                }
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>
